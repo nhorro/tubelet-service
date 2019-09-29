@@ -35,3 +35,6 @@
 .settings
 Debug
 /build/
+
+# Python
+__pycache__

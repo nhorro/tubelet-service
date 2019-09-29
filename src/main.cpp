@@ -14,12 +14,13 @@ using grpc::Status;
 /* -- Service */
 #include "tubelet_service.grpc.pb.h"
 
-const int VERSION_MAJOR = 1;
-const int VERSION_MINOR = 1;
-const int VERSION_REVISION = 1;
+const int VERSION_MAJOR = 0;
+const int VERSION_MINOR = 5;
+const int VERSION_REVISION = 0;
 
 #define DEFAULT_WINDOW_WIDTH 320
 #define DEFAULT_WINDOW_HEIGHT 200
+#define CLUSTERING_DISTANCE 3.0
 
 class tubelet_service_impl final: public tubelet_service::tubelet_service::Service
 {
@@ -32,7 +33,6 @@ public:
 
 	grpc::Status get_version(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::get_version_response* response) override
 	{
-		std::cout << "Received get version" << std::endl;
 		response->set_version(
 				(boost::format("%d.%d.%d") % VERSION_MAJOR % VERSION_MINOR % VERSION_REVISION).str() );
 		return Status::OK;
@@ -40,7 +40,7 @@ public:
 
 	grpc::Status add_observation2d(::grpc::ServerContext* context, const ::tubelet_service::add_observation2d_request* request, ::tubelet_service::Empty* response) override
 	{
-		double clustering_dist = 3.0; //TODO: make parameter
+		double clustering_dist = CLUSTERING_DISTANCE; //TODO: make parameter
 
 		this->tubs.add_observation(
 				request->pos().x(),

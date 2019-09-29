@@ -64,12 +64,6 @@ conda-build -c conda-forge conda-recipe
 
 [An example notebook](python/TubeletServiceTest.ipynb) is provided to test the service.
 
-To run with docker:
-
-```bash
-docker run -it --rm --runtime=nvidia -v $(realpath $PWD):/tf/notebooks --name tensorflowdev1 --network="host" nhorro/tensorflow1.12-py3-jupyter-opencv:1.1.0
-```
-
 ## TODO's
 
 - Build protobufs. from Makefile.
