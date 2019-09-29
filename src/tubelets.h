@@ -87,6 +87,11 @@ public:
 	// Debugging
 	void print_all();
 
+	/**
+	 * @brief clear tree.
+	 */
+	void clear();
+
 private:
 	rtree tree;
     box2d frustrum;

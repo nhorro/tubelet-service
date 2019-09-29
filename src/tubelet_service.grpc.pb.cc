@@ -22,7 +22,8 @@ static const char* tubelet_service_method_names[] = {
   "/tubelet_service.tubelet_service/get_version",
   "/tubelet_service.tubelet_service/add_observation2d",
   "/tubelet_service.tubelet_service/get_all_tubelets2d",
-  "/tubelet_service.tubelet_service/clear",
+  "/tubelet_service.tubelet_service/reset",
+  "/tubelet_service.tubelet_service/clip",
   "/tubelet_service.tubelet_service/move_window",
 };
 
@@ -36,8 +37,9 @@ tubelet_service::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& ch
   : channel_(channel), rpcmethod_get_version_(tubelet_service_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_add_observation2d_(tubelet_service_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_get_all_tubelets2d_(tubelet_service_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_clear_(tubelet_service_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_move_window_(tubelet_service_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_reset_(tubelet_service_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_clip_(tubelet_service_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_move_window_(tubelet_service_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status tubelet_service::Stub::get_version(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::tubelet_service::get_version_response* response) {
@@ -124,32 +126,60 @@ void tubelet_service::Stub::experimental_async::get_all_tubelets2d(::grpc::Clien
   return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::tubelet_service::get_all_tubelets2d_response>::Create(channel_.get(), cq, rpcmethod_get_all_tubelets2d_, context, request, false);
 }
 
-::grpc::Status tubelet_service::Stub::clear(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::tubelet_service::Empty* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_clear_, context, request, response);
+::grpc::Status tubelet_service::Stub::reset(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::tubelet_service::Empty* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_reset_, context, request, response);
 }
 
-void tubelet_service::Stub::experimental_async::clear(::grpc::ClientContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_clear_, context, request, response, std::move(f));
+void tubelet_service::Stub::experimental_async::reset(::grpc::ClientContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_reset_, context, request, response, std::move(f));
 }
 
-void tubelet_service::Stub::experimental_async::clear(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_clear_, context, request, response, std::move(f));
+void tubelet_service::Stub::experimental_async::reset(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_reset_, context, request, response, std::move(f));
 }
 
-void tubelet_service::Stub::experimental_async::clear(::grpc::ClientContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_clear_, context, request, response, reactor);
+void tubelet_service::Stub::experimental_async::reset(::grpc::ClientContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_reset_, context, request, response, reactor);
 }
 
-void tubelet_service::Stub::experimental_async::clear(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_clear_, context, request, response, reactor);
+void tubelet_service::Stub::experimental_async::reset(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_reset_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>* tubelet_service::Stub::AsyncclearRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::tubelet_service::Empty>::Create(channel_.get(), cq, rpcmethod_clear_, context, request, true);
+::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>* tubelet_service::Stub::AsyncresetRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::tubelet_service::Empty>::Create(channel_.get(), cq, rpcmethod_reset_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>* tubelet_service::Stub::PrepareAsyncclearRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::tubelet_service::Empty>::Create(channel_.get(), cq, rpcmethod_clear_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>* tubelet_service::Stub::PrepareAsyncresetRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::tubelet_service::Empty>::Create(channel_.get(), cq, rpcmethod_reset_, context, request, false);
+}
+
+::grpc::Status tubelet_service::Stub::clip(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::tubelet_service::Empty* response) {
+  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_clip_, context, request, response);
+}
+
+void tubelet_service::Stub::experimental_async::clip(::grpc::ClientContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_clip_, context, request, response, std::move(f));
+}
+
+void tubelet_service::Stub::experimental_async::clip(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_clip_, context, request, response, std::move(f));
+}
+
+void tubelet_service::Stub::experimental_async::clip(::grpc::ClientContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_clip_, context, request, response, reactor);
+}
+
+void tubelet_service::Stub::experimental_async::clip(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_clip_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>* tubelet_service::Stub::AsyncclipRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::tubelet_service::Empty>::Create(channel_.get(), cq, rpcmethod_clip_, context, request, true);
+}
+
+::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>* tubelet_service::Stub::PrepareAsyncclipRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::tubelet_service::Empty>::Create(channel_.get(), cq, rpcmethod_clip_, context, request, false);
 }
 
 ::grpc::Status tubelet_service::Stub::move_window(::grpc::ClientContext* context, const ::tubelet_service::move_window_request& request, ::tubelet_service::Empty* response) {
@@ -200,9 +230,14 @@ tubelet_service::Service::Service() {
       tubelet_service_method_names[3],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< tubelet_service::Service, ::tubelet_service::Empty, ::tubelet_service::Empty>(
-          std::mem_fn(&tubelet_service::Service::clear), this)));
+          std::mem_fn(&tubelet_service::Service::reset), this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       tubelet_service_method_names[4],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< tubelet_service::Service, ::tubelet_service::Empty, ::tubelet_service::Empty>(
+          std::mem_fn(&tubelet_service::Service::clip), this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      tubelet_service_method_names[5],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< tubelet_service::Service, ::tubelet_service::move_window_request, ::tubelet_service::Empty>(
           std::mem_fn(&tubelet_service::Service::move_window), this)));
@@ -232,7 +267,14 @@ tubelet_service::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status tubelet_service::Service::clear(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) {
+::grpc::Status tubelet_service::Service::reset(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status tubelet_service::Service::clip(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) {
   (void) context;
   (void) request;
   (void) response;

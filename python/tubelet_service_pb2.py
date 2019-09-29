@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='tubelet_service',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x15tubelet_service.proto\x12\x0ftubelet_service\"\x07\n\x05\x45mpty\"\x1f\n\x07point2d\x12\t\n\x01x\x18\x01 \x01(\x01\x12\t\n\x01y\x18\x02 \x01(\x01\"0\n\x0bobservation\x12\x13\n\x0b\x63lass_index\x18\x01 \x01(\r\x12\x0c\n\x04prob\x18\x02 \x01(\x01\"f\n\ttubelet2d\x12%\n\x03pos\x18\x01 \x01(\x0b\x32\x18.tubelet_service.point2d\x12\x32\n\x0cobservations\x18\x02 \x03(\x0b\x32\x1c.tubelet_service.observation\"\'\n\x14get_version_response\x12\x0f\n\x07version\x18\x01 \x01(\t\"m\n\x19\x61\x64\x64_observation2d_request\x12%\n\x03pos\x18\x01 \x01(\x0b\x32\x18.tubelet_service.point2d\x12)\n\x03obs\x18\x02 \x01(\x0b\x32\x1c.tubelet_service.observation\"K\n\x1bget_all_tubelets2d_response\x12,\n\x08tubelets\x18\x02 \x03(\x0b\x32\x1a.tubelet_service.tubelet2d\"-\n\x13move_window_request\x12\n\n\x02\x64x\x18\x01 \x01(\x01\x12\n\n\x02\x64y\x18\x02 \x01(\x01\x32\xa4\x03\n\x0ftubelet_service\x12N\n\x0bget_version\x12\x16.tubelet_service.Empty\x1a%.tubelet_service.get_version_response\"\x00\x12Y\n\x11\x61\x64\x64_observation2d\x12*.tubelet_service.add_observation2d_request\x1a\x16.tubelet_service.Empty\"\x00\x12\\\n\x12get_all_tubelets2d\x12\x16.tubelet_service.Empty\x1a,.tubelet_service.get_all_tubelets2d_response\"\x00\x12\x39\n\x05\x63lear\x12\x16.tubelet_service.Empty\x1a\x16.tubelet_service.Empty\"\x00\x12M\n\x0bmove_window\x12$.tubelet_service.move_window_request\x1a\x16.tubelet_service.Empty\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x15tubelet_service.proto\x12\x0ftubelet_service\"\x07\n\x05\x45mpty\"\x1f\n\x07point2d\x12\t\n\x01x\x18\x01 \x01(\x01\x12\t\n\x01y\x18\x02 \x01(\x01\"0\n\x0bobservation\x12\x13\n\x0b\x63lass_index\x18\x01 \x01(\r\x12\x0c\n\x04prob\x18\x02 \x01(\x01\"f\n\ttubelet2d\x12%\n\x03pos\x18\x01 \x01(\x0b\x32\x18.tubelet_service.point2d\x12\x32\n\x0cobservations\x18\x02 \x03(\x0b\x32\x1c.tubelet_service.observation\"\'\n\x14get_version_response\x12\x0f\n\x07version\x18\x01 \x01(\t\"m\n\x19\x61\x64\x64_observation2d_request\x12%\n\x03pos\x18\x01 \x01(\x0b\x32\x18.tubelet_service.point2d\x12)\n\x03obs\x18\x02 \x01(\x0b\x32\x1c.tubelet_service.observation\"K\n\x1bget_all_tubelets2d_response\x12,\n\x08tubelets\x18\x01 \x03(\x0b\x32\x1a.tubelet_service.tubelet2d\"-\n\x13move_window_request\x12\n\n\x02\x64x\x18\x01 \x01(\x01\x12\n\n\x02\x64y\x18\x02 \x01(\x01\x32\xde\x03\n\x0ftubelet_service\x12N\n\x0bget_version\x12\x16.tubelet_service.Empty\x1a%.tubelet_service.get_version_response\"\x00\x12Y\n\x11\x61\x64\x64_observation2d\x12*.tubelet_service.add_observation2d_request\x1a\x16.tubelet_service.Empty\"\x00\x12\\\n\x12get_all_tubelets2d\x12\x16.tubelet_service.Empty\x1a,.tubelet_service.get_all_tubelets2d_response\"\x00\x12\x39\n\x05reset\x12\x16.tubelet_service.Empty\x1a\x16.tubelet_service.Empty\"\x00\x12\x38\n\x04\x63lip\x12\x16.tubelet_service.Empty\x1a\x16.tubelet_service.Empty\"\x00\x12M\n\x0bmove_window\x12$.tubelet_service.move_window_request\x1a\x16.tubelet_service.Empty\"\x00\x62\x06proto3')
 )
 
 
@@ -242,7 +242,7 @@ _GET_ALL_TUBELETS2D_RESPONSE = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='tubelets', full_name='tubelet_service.get_all_tubelets2d_response.tubelets', index=0,
-      number=2, type=11, cpp_type=10, label=3,
+      number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -381,7 +381,7 @@ _TUBELET_SERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   serialized_start=515,
-  serialized_end=935,
+  serialized_end=993,
   methods=[
   _descriptor.MethodDescriptor(
     name='get_version',
@@ -411,9 +411,18 @@ _TUBELET_SERVICE = _descriptor.ServiceDescriptor(
     serialized_options=None,
   ),
   _descriptor.MethodDescriptor(
-    name='clear',
-    full_name='tubelet_service.tubelet_service.clear',
+    name='reset',
+    full_name='tubelet_service.tubelet_service.reset',
     index=3,
+    containing_service=None,
+    input_type=_EMPTY,
+    output_type=_EMPTY,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='clip',
+    full_name='tubelet_service.tubelet_service.clip',
+    index=4,
     containing_service=None,
     input_type=_EMPTY,
     output_type=_EMPTY,
@@ -422,7 +431,7 @@ _TUBELET_SERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='move_window',
     full_name='tubelet_service.tubelet_service.move_window',
-    index=4,
+    index=5,
     containing_service=None,
     input_type=_MOVE_WINDOW_REQUEST,
     output_type=_EMPTY,

@@ -67,12 +67,19 @@ class tubelet_service final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::get_all_tubelets2d_response>> PrepareAsyncget_all_tubelets2d(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::get_all_tubelets2d_response>>(PrepareAsyncget_all_tubelets2dRaw(context, request, cq));
     }
-    virtual ::grpc::Status clear(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::tubelet_service::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>> Asyncclear(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>>(AsyncclearRaw(context, request, cq));
+    virtual ::grpc::Status reset(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::tubelet_service::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>> Asyncreset(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>>(AsyncresetRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>> PrepareAsyncclear(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>>(PrepareAsyncclearRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>> PrepareAsyncreset(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>>(PrepareAsyncresetRaw(context, request, cq));
+    }
+    virtual ::grpc::Status clip(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::tubelet_service::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>> Asyncclip(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>>(AsyncclipRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>> PrepareAsyncclip(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>>(PrepareAsyncclipRaw(context, request, cq));
     }
     virtual ::grpc::Status move_window(::grpc::ClientContext* context, const ::tubelet_service::move_window_request& request, ::tubelet_service::Empty* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>> Asyncmove_window(::grpc::ClientContext* context, const ::tubelet_service::move_window_request& request, ::grpc::CompletionQueue* cq) {
@@ -96,10 +103,14 @@ class tubelet_service final {
       virtual void get_all_tubelets2d(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::get_all_tubelets2d_response* response, std::function<void(::grpc::Status)>) = 0;
       virtual void get_all_tubelets2d(::grpc::ClientContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::get_all_tubelets2d_response* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       virtual void get_all_tubelets2d(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::get_all_tubelets2d_response* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      virtual void clear(::grpc::ClientContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void clear(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void clear(::grpc::ClientContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      virtual void clear(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void reset(::grpc::ClientContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void reset(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void reset(::grpc::ClientContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void reset(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void clip(::grpc::ClientContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void clip(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void clip(::grpc::ClientContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void clip(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       virtual void move_window(::grpc::ClientContext* context, const ::tubelet_service::move_window_request* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)>) = 0;
       virtual void move_window(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)>) = 0;
       virtual void move_window(::grpc::ClientContext* context, const ::tubelet_service::move_window_request* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
@@ -113,8 +124,10 @@ class tubelet_service final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>* PrepareAsyncadd_observation2dRaw(::grpc::ClientContext* context, const ::tubelet_service::add_observation2d_request& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::get_all_tubelets2d_response>* Asyncget_all_tubelets2dRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::get_all_tubelets2d_response>* PrepareAsyncget_all_tubelets2dRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>* AsyncclearRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>* PrepareAsyncclearRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>* AsyncresetRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>* PrepareAsyncresetRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>* AsyncclipRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>* PrepareAsyncclipRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>* Asyncmove_windowRaw(::grpc::ClientContext* context, const ::tubelet_service::move_window_request& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>* PrepareAsyncmove_windowRaw(::grpc::ClientContext* context, const ::tubelet_service::move_window_request& request, ::grpc::CompletionQueue* cq) = 0;
   };
@@ -142,12 +155,19 @@ class tubelet_service final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::tubelet_service::get_all_tubelets2d_response>> PrepareAsyncget_all_tubelets2d(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::tubelet_service::get_all_tubelets2d_response>>(PrepareAsyncget_all_tubelets2dRaw(context, request, cq));
     }
-    ::grpc::Status clear(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::tubelet_service::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>> Asyncclear(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>>(AsyncclearRaw(context, request, cq));
+    ::grpc::Status reset(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::tubelet_service::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>> Asyncreset(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>>(AsyncresetRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>> PrepareAsyncclear(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>>(PrepareAsyncclearRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>> PrepareAsyncreset(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>>(PrepareAsyncresetRaw(context, request, cq));
+    }
+    ::grpc::Status clip(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::tubelet_service::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>> Asyncclip(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>>(AsyncclipRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>> PrepareAsyncclip(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>>(PrepareAsyncclipRaw(context, request, cq));
     }
     ::grpc::Status move_window(::grpc::ClientContext* context, const ::tubelet_service::move_window_request& request, ::tubelet_service::Empty* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>> Asyncmove_window(::grpc::ClientContext* context, const ::tubelet_service::move_window_request& request, ::grpc::CompletionQueue* cq) {
@@ -171,10 +191,14 @@ class tubelet_service final {
       void get_all_tubelets2d(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::get_all_tubelets2d_response* response, std::function<void(::grpc::Status)>) override;
       void get_all_tubelets2d(::grpc::ClientContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::get_all_tubelets2d_response* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       void get_all_tubelets2d(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::get_all_tubelets2d_response* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      void clear(::grpc::ClientContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)>) override;
-      void clear(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)>) override;
-      void clear(::grpc::ClientContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      void clear(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void reset(::grpc::ClientContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)>) override;
+      void reset(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)>) override;
+      void reset(::grpc::ClientContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void reset(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void clip(::grpc::ClientContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)>) override;
+      void clip(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)>) override;
+      void clip(::grpc::ClientContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void clip(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       void move_window(::grpc::ClientContext* context, const ::tubelet_service::move_window_request* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)>) override;
       void move_window(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)>) override;
       void move_window(::grpc::ClientContext* context, const ::tubelet_service::move_window_request* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
@@ -196,14 +220,17 @@ class tubelet_service final {
     ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>* PrepareAsyncadd_observation2dRaw(::grpc::ClientContext* context, const ::tubelet_service::add_observation2d_request& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::tubelet_service::get_all_tubelets2d_response>* Asyncget_all_tubelets2dRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::tubelet_service::get_all_tubelets2d_response>* PrepareAsyncget_all_tubelets2dRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>* AsyncclearRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>* PrepareAsyncclearRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>* AsyncresetRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>* PrepareAsyncresetRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>* AsyncclipRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>* PrepareAsyncclipRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>* Asyncmove_windowRaw(::grpc::ClientContext* context, const ::tubelet_service::move_window_request& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>* PrepareAsyncmove_windowRaw(::grpc::ClientContext* context, const ::tubelet_service::move_window_request& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_get_version_;
     const ::grpc::internal::RpcMethod rpcmethod_add_observation2d_;
     const ::grpc::internal::RpcMethod rpcmethod_get_all_tubelets2d_;
-    const ::grpc::internal::RpcMethod rpcmethod_clear_;
+    const ::grpc::internal::RpcMethod rpcmethod_reset_;
+    const ::grpc::internal::RpcMethod rpcmethod_clip_;
     const ::grpc::internal::RpcMethod rpcmethod_move_window_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -215,7 +242,8 @@ class tubelet_service final {
     virtual ::grpc::Status get_version(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::get_version_response* response);
     virtual ::grpc::Status add_observation2d(::grpc::ServerContext* context, const ::tubelet_service::add_observation2d_request* request, ::tubelet_service::Empty* response);
     virtual ::grpc::Status get_all_tubelets2d(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::get_all_tubelets2d_response* response);
-    virtual ::grpc::Status clear(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response);
+    virtual ::grpc::Status reset(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response);
+    virtual ::grpc::Status clip(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response);
     virtual ::grpc::Status move_window(::grpc::ServerContext* context, const ::tubelet_service::move_window_request* request, ::tubelet_service::Empty* response);
   };
   template <class BaseClass>
@@ -279,23 +307,43 @@ class tubelet_service final {
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_clear : public BaseClass {
+  class WithAsyncMethod_reset : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithAsyncMethod_clear() {
+    WithAsyncMethod_reset() {
       ::grpc::Service::MarkMethodAsync(3);
     }
-    ~WithAsyncMethod_clear() override {
+    ~WithAsyncMethod_reset() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status clear(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) override {
+    ::grpc::Status reset(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void Requestclear(::grpc::ServerContext* context, ::tubelet_service::Empty* request, ::grpc::ServerAsyncResponseWriter< ::tubelet_service::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void Requestreset(::grpc::ServerContext* context, ::tubelet_service::Empty* request, ::grpc::ServerAsyncResponseWriter< ::tubelet_service::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_clip : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_clip() {
+      ::grpc::Service::MarkMethodAsync(4);
+    }
+    ~WithAsyncMethod_clip() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status clip(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void Requestclip(::grpc::ServerContext* context, ::tubelet_service::Empty* request, ::grpc::ServerAsyncResponseWriter< ::tubelet_service::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -304,7 +352,7 @@ class tubelet_service final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithAsyncMethod_move_window() {
-      ::grpc::Service::MarkMethodAsync(4);
+      ::grpc::Service::MarkMethodAsync(5);
     }
     ~WithAsyncMethod_move_window() override {
       BaseClassMustBeDerivedFromService(this);
@@ -315,10 +363,10 @@ class tubelet_service final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void Requestmove_window(::grpc::ServerContext* context, ::tubelet_service::move_window_request* request, ::grpc::ServerAsyncResponseWriter< ::tubelet_service::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_get_version<WithAsyncMethod_add_observation2d<WithAsyncMethod_get_all_tubelets2d<WithAsyncMethod_clear<WithAsyncMethod_move_window<Service > > > > > AsyncService;
+  typedef WithAsyncMethod_get_version<WithAsyncMethod_add_observation2d<WithAsyncMethod_get_all_tubelets2d<WithAsyncMethod_reset<WithAsyncMethod_clip<WithAsyncMethod_move_window<Service > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_get_version : public BaseClass {
    private:
@@ -413,35 +461,66 @@ class tubelet_service final {
     virtual void get_all_tubelets2d(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::get_all_tubelets2d_response* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_clear : public BaseClass {
+  class ExperimentalWithCallbackMethod_reset : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    ExperimentalWithCallbackMethod_clear() {
+    ExperimentalWithCallbackMethod_reset() {
       ::grpc::Service::experimental().MarkMethodCallback(3,
         new ::grpc_impl::internal::CallbackUnaryHandler< ::tubelet_service::Empty, ::tubelet_service::Empty>(
           [this](::grpc::ServerContext* context,
                  const ::tubelet_service::Empty* request,
                  ::tubelet_service::Empty* response,
                  ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   return this->clear(context, request, response, controller);
+                   return this->reset(context, request, response, controller);
                  }));
     }
-    void SetMessageAllocatorFor_clear(
+    void SetMessageAllocatorFor_reset(
         ::grpc::experimental::MessageAllocator< ::tubelet_service::Empty, ::tubelet_service::Empty>* allocator) {
       static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::tubelet_service::Empty, ::tubelet_service::Empty>*>(
           ::grpc::Service::experimental().GetHandler(3))
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_clear() override {
+    ~ExperimentalWithCallbackMethod_reset() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status clear(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) override {
+    ::grpc::Status reset(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void clear(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    virtual void reset(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_clip : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_clip() {
+      ::grpc::Service::experimental().MarkMethodCallback(4,
+        new ::grpc_impl::internal::CallbackUnaryHandler< ::tubelet_service::Empty, ::tubelet_service::Empty>(
+          [this](::grpc::ServerContext* context,
+                 const ::tubelet_service::Empty* request,
+                 ::tubelet_service::Empty* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->clip(context, request, response, controller);
+                 }));
+    }
+    void SetMessageAllocatorFor_clip(
+        ::grpc::experimental::MessageAllocator< ::tubelet_service::Empty, ::tubelet_service::Empty>* allocator) {
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::tubelet_service::Empty, ::tubelet_service::Empty>*>(
+          ::grpc::Service::experimental().GetHandler(4))
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_clip() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status clip(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void clip(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_move_window : public BaseClass {
@@ -449,7 +528,7 @@ class tubelet_service final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithCallbackMethod_move_window() {
-      ::grpc::Service::experimental().MarkMethodCallback(4,
+      ::grpc::Service::experimental().MarkMethodCallback(5,
         new ::grpc_impl::internal::CallbackUnaryHandler< ::tubelet_service::move_window_request, ::tubelet_service::Empty>(
           [this](::grpc::ServerContext* context,
                  const ::tubelet_service::move_window_request* request,
@@ -461,7 +540,7 @@ class tubelet_service final {
     void SetMessageAllocatorFor_move_window(
         ::grpc::experimental::MessageAllocator< ::tubelet_service::move_window_request, ::tubelet_service::Empty>* allocator) {
       static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::tubelet_service::move_window_request, ::tubelet_service::Empty>*>(
-          ::grpc::Service::experimental().GetHandler(4))
+          ::grpc::Service::experimental().GetHandler(5))
               ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_move_window() override {
@@ -474,7 +553,7 @@ class tubelet_service final {
     }
     virtual void move_window(::grpc::ServerContext* context, const ::tubelet_service::move_window_request* request, ::tubelet_service::Empty* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_get_version<ExperimentalWithCallbackMethod_add_observation2d<ExperimentalWithCallbackMethod_get_all_tubelets2d<ExperimentalWithCallbackMethod_clear<ExperimentalWithCallbackMethod_move_window<Service > > > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_get_version<ExperimentalWithCallbackMethod_add_observation2d<ExperimentalWithCallbackMethod_get_all_tubelets2d<ExperimentalWithCallbackMethod_reset<ExperimentalWithCallbackMethod_clip<ExperimentalWithCallbackMethod_move_window<Service > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_get_version : public BaseClass {
    private:
@@ -527,18 +606,35 @@ class tubelet_service final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_clear : public BaseClass {
+  class WithGenericMethod_reset : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithGenericMethod_clear() {
+    WithGenericMethod_reset() {
       ::grpc::Service::MarkMethodGeneric(3);
     }
-    ~WithGenericMethod_clear() override {
+    ~WithGenericMethod_reset() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status clear(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) override {
+    ::grpc::Status reset(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_clip : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_clip() {
+      ::grpc::Service::MarkMethodGeneric(4);
+    }
+    ~WithGenericMethod_clip() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status clip(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -549,7 +645,7 @@ class tubelet_service final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithGenericMethod_move_window() {
-      ::grpc::Service::MarkMethodGeneric(4);
+      ::grpc::Service::MarkMethodGeneric(5);
     }
     ~WithGenericMethod_move_window() override {
       BaseClassMustBeDerivedFromService(this);
@@ -621,23 +717,43 @@ class tubelet_service final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_clear : public BaseClass {
+  class WithRawMethod_reset : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithRawMethod_clear() {
+    WithRawMethod_reset() {
       ::grpc::Service::MarkMethodRaw(3);
     }
-    ~WithRawMethod_clear() override {
+    ~WithRawMethod_reset() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status clear(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) override {
+    ::grpc::Status reset(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void Requestclear(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void Requestreset(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_clip : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_clip() {
+      ::grpc::Service::MarkMethodRaw(4);
+    }
+    ~WithRawMethod_clip() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status clip(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void Requestclip(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -646,7 +762,7 @@ class tubelet_service final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithRawMethod_move_window() {
-      ::grpc::Service::MarkMethodRaw(4);
+      ::grpc::Service::MarkMethodRaw(5);
     }
     ~WithRawMethod_move_window() override {
       BaseClassMustBeDerivedFromService(this);
@@ -657,7 +773,7 @@ class tubelet_service final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void Requestmove_window(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -736,29 +852,54 @@ class tubelet_service final {
     virtual void get_all_tubelets2d(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_clear : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_reset : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    ExperimentalWithRawCallbackMethod_clear() {
+    ExperimentalWithRawCallbackMethod_reset() {
       ::grpc::Service::experimental().MarkMethodRawCallback(3,
         new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
           [this](::grpc::ServerContext* context,
                  const ::grpc::ByteBuffer* request,
                  ::grpc::ByteBuffer* response,
                  ::grpc::experimental::ServerCallbackRpcController* controller) {
-                   this->clear(context, request, response, controller);
+                   this->reset(context, request, response, controller);
                  }));
     }
-    ~ExperimentalWithRawCallbackMethod_clear() override {
+    ~ExperimentalWithRawCallbackMethod_reset() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status clear(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) override {
+    ::grpc::Status reset(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void clear(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    virtual void reset(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_clip : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_clip() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(4,
+        new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->clip(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_clip() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status clip(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void clip(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_move_window : public BaseClass {
@@ -766,7 +907,7 @@ class tubelet_service final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     ExperimentalWithRawCallbackMethod_move_window() {
-      ::grpc::Service::experimental().MarkMethodRawCallback(4,
+      ::grpc::Service::experimental().MarkMethodRawCallback(5,
         new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
           [this](::grpc::ServerContext* context,
                  const ::grpc::ByteBuffer* request,
@@ -846,24 +987,44 @@ class tubelet_service final {
     virtual ::grpc::Status Streamedget_all_tubelets2d(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::tubelet_service::Empty,::tubelet_service::get_all_tubelets2d_response>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_clear : public BaseClass {
+  class WithStreamedUnaryMethod_reset : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithStreamedUnaryMethod_clear() {
+    WithStreamedUnaryMethod_reset() {
       ::grpc::Service::MarkMethodStreamed(3,
-        new ::grpc::internal::StreamedUnaryHandler< ::tubelet_service::Empty, ::tubelet_service::Empty>(std::bind(&WithStreamedUnaryMethod_clear<BaseClass>::Streamedclear, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::tubelet_service::Empty, ::tubelet_service::Empty>(std::bind(&WithStreamedUnaryMethod_reset<BaseClass>::Streamedreset, this, std::placeholders::_1, std::placeholders::_2)));
     }
-    ~WithStreamedUnaryMethod_clear() override {
+    ~WithStreamedUnaryMethod_reset() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status clear(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) override {
+    ::grpc::Status reset(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status Streamedclear(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::tubelet_service::Empty,::tubelet_service::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status Streamedreset(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::tubelet_service::Empty,::tubelet_service::Empty>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_clip : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_clip() {
+      ::grpc::Service::MarkMethodStreamed(4,
+        new ::grpc::internal::StreamedUnaryHandler< ::tubelet_service::Empty, ::tubelet_service::Empty>(std::bind(&WithStreamedUnaryMethod_clip<BaseClass>::Streamedclip, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_clip() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status clip(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status Streamedclip(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::tubelet_service::Empty,::tubelet_service::Empty>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_move_window : public BaseClass {
@@ -871,7 +1032,7 @@ class tubelet_service final {
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
     WithStreamedUnaryMethod_move_window() {
-      ::grpc::Service::MarkMethodStreamed(4,
+      ::grpc::Service::MarkMethodStreamed(5,
         new ::grpc::internal::StreamedUnaryHandler< ::tubelet_service::move_window_request, ::tubelet_service::Empty>(std::bind(&WithStreamedUnaryMethod_move_window<BaseClass>::Streamedmove_window, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_move_window() override {
@@ -885,9 +1046,9 @@ class tubelet_service final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status Streamedmove_window(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::tubelet_service::move_window_request,::tubelet_service::Empty>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_get_version<WithStreamedUnaryMethod_add_observation2d<WithStreamedUnaryMethod_get_all_tubelets2d<WithStreamedUnaryMethod_clear<WithStreamedUnaryMethod_move_window<Service > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_get_version<WithStreamedUnaryMethod_add_observation2d<WithStreamedUnaryMethod_get_all_tubelets2d<WithStreamedUnaryMethod_reset<WithStreamedUnaryMethod_clip<WithStreamedUnaryMethod_move_window<Service > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_get_version<WithStreamedUnaryMethod_add_observation2d<WithStreamedUnaryMethod_get_all_tubelets2d<WithStreamedUnaryMethod_clear<WithStreamedUnaryMethod_move_window<Service > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_get_version<WithStreamedUnaryMethod_add_observation2d<WithStreamedUnaryMethod_get_all_tubelets2d<WithStreamedUnaryMethod_reset<WithStreamedUnaryMethod_clip<WithStreamedUnaryMethod_move_window<Service > > > > > > StreamedService;
 };
 
 }  // namespace tubelet_service

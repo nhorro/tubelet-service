@@ -40,43 +40,57 @@ public:
 
 	grpc::Status add_observation2d(::grpc::ServerContext* context, const ::tubelet_service::add_observation2d_request* request, ::tubelet_service::Empty* response) override
 	{
-		std::cout << "Received get add_observation2d" << std::endl;
-		std::cout << "x: " << request->pos().x() << std::endl;
-		std::cout << "y: " << request->pos().y() << std::endl;
-		std::cout << "obs: { ci:" << request->obs().class_index()
-				  << ", prob: " <<  request->obs().prob() << std::endl;
+		double clustering_dist = 3.0; //TODO: make parameter
+
+		this->tubs.add_observation(
+				request->pos().x(),
+				request->pos().y(),
+				request->obs().class_index(),
+				request->obs().prob(),
+				clustering_dist
+		);
+
 		return Status::OK;
 	}
 
 	grpc::Status get_all_tubelets2d(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::get_all_tubelets2d_response* response) override
 	{
-		for(double i=0.0;i<10.0;i++)
+		auto tree = this->tubs.get_tree();
+		for(auto const& v: tree)
 		{
-			auto tub = response->mutable_tubelets()->Add();
-			tub->mutable_pos()->set_x(1.0+1.0*i);
-			tub->mutable_pos()->set_y(1.0+2.0*i);
+			auto new_tub = response->mutable_tubelets()->Add();
+			new_tub->mutable_pos()->set_x(v.x );
+			new_tub->mutable_pos()->set_y(v.y );
 
-			for(double j=0.0;j<5.0;j++)
+			// observations
+			for(auto o: *(v.obs))
 			{
-				auto obs = tub->mutable_observations()->Add();
-				obs->set_class_index((int)j);
-				obs->set_prob(i*j*0.01);
+				auto new_obs = new_tub->mutable_observations()->Add();
+				new_obs->set_class_index(o.ci );
+				new_obs->set_prob(o.prob);
 			}
 		}
 		return Status::OK;
 	}
 
-	grpc::Status clear(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) override
+	grpc::Status reset(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) override
 	{
-		//TODO
+		this->tubs.clear();
+		return Status::OK;
+	}
+
+	grpc::Status clip(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response) override
+	{
+		this->tubs.clip();
 		return Status::OK;
 	}
 
 	grpc::Status move_window(::grpc::ServerContext* context, const ::tubelet_service::move_window_request* request, ::tubelet_service::Empty* response) override
 	{
-		//TODO
+		this->tubs.move_frustrum(request->dx(),request->dy());
 		return Status::OK;
 	}
+
 private:
 	tubelets tubs;
 };

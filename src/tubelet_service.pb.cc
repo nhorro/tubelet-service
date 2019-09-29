@@ -260,9 +260,9 @@ const char descriptor_table_protodef_tubelet_5fservice_2eproto[] =
   "\031add_observation2d_request\022%\n\003pos\030\001 \001(\0132"
   "\030.tubelet_service.point2d\022)\n\003obs\030\002 \001(\0132\034"
   ".tubelet_service.observation\"K\n\033get_all_"
-  "tubelets2d_response\022,\n\010tubelets\030\002 \003(\0132\032."
+  "tubelets2d_response\022,\n\010tubelets\030\001 \003(\0132\032."
   "tubelet_service.tubelet2d\"-\n\023move_window"
-  "_request\022\n\n\002dx\030\001 \001(\001\022\n\n\002dy\030\002 \001(\0012\244\003\n\017tub"
+  "_request\022\n\n\002dx\030\001 \001(\001\022\n\n\002dy\030\002 \001(\0012\336\003\n\017tub"
   "elet_service\022N\n\013get_version\022\026.tubelet_se"
   "rvice.Empty\032%.tubelet_service.get_versio"
   "n_response\"\000\022Y\n\021add_observation2d\022*.tube"
@@ -270,10 +270,12 @@ const char descriptor_table_protodef_tubelet_5fservice_2eproto[] =
   "tubelet_service.Empty\"\000\022\\\n\022get_all_tubel"
   "ets2d\022\026.tubelet_service.Empty\032,.tubelet_"
   "service.get_all_tubelets2d_response\"\000\0229\n"
-  "\005clear\022\026.tubelet_service.Empty\032\026.tubelet"
-  "_service.Empty\"\000\022M\n\013move_window\022$.tubele"
-  "t_service.move_window_request\032\026.tubelet_"
-  "service.Empty\"\000b\006proto3"
+  "\005reset\022\026.tubelet_service.Empty\032\026.tubelet"
+  "_service.Empty\"\000\0228\n\004clip\022\026.tubelet_servi"
+  "ce.Empty\032\026.tubelet_service.Empty\"\000\022M\n\013mo"
+  "ve_window\022$.tubelet_service.move_window_"
+  "request\032\026.tubelet_service.Empty\"\000b\006proto"
+  "3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_tubelet_5fservice_2eproto_deps[1] = {
 };
@@ -290,7 +292,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_tub
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_tubelet_5fservice_2eproto_once;
 static bool descriptor_table_tubelet_5fservice_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_tubelet_5fservice_2eproto = {
-  &descriptor_table_tubelet_5fservice_2eproto_initialized, descriptor_table_protodef_tubelet_5fservice_2eproto, "tubelet_service.proto", 943,
+  &descriptor_table_tubelet_5fservice_2eproto_initialized, descriptor_table_protodef_tubelet_5fservice_2eproto, "tubelet_service.proto", 1001,
   &descriptor_table_tubelet_5fservice_2eproto_once, descriptor_table_tubelet_5fservice_2eproto_sccs, descriptor_table_tubelet_5fservice_2eproto_deps, 8, 0,
   schemas, file_default_instances, TableStruct_tubelet_5fservice_2eproto::offsets,
   file_level_metadata_tubelet_5fservice_2eproto, 8, file_level_enum_descriptors_tubelet_5fservice_2eproto, file_level_service_descriptors_tubelet_5fservice_2eproto,
@@ -2117,16 +2119,16 @@ const char* get_all_tubelets2d_response::_InternalParse(const char* ptr, ::PROTO
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .tubelet_service.tubelet2d tubelets = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+      // repeated .tubelet_service.tubelet2d tubelets = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
           do {
             ptr += 1;
             ptr = ctx->ParseMessage(add_tubelets(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint8>(ptr) == 18);
+          } while (::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint8>(ptr) == 10);
         } else goto handle_unusual;
         continue;
       default: {
@@ -2159,9 +2161,9 @@ bool get_all_tubelets2d_response::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .tubelet_service.tubelet2d tubelets = 2;
-      case 2: {
-        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (18 & 0xFF)) {
+      // repeated .tubelet_service.tubelet2d tubelets = 1;
+      case 1: {
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (10 & 0xFF)) {
           DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadMessage(
                 input, add_tubelets()));
         } else {
@@ -2197,11 +2199,11 @@ void get_all_tubelets2d_response::SerializeWithCachedSizes(
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .tubelet_service.tubelet2d tubelets = 2;
+  // repeated .tubelet_service.tubelet2d tubelets = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->tubelets_size()); i < n; i++) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2,
+      1,
       this->tubelets(static_cast<int>(i)),
       output);
   }
@@ -2219,12 +2221,12 @@ void get_all_tubelets2d_response::SerializeWithCachedSizes(
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .tubelet_service.tubelet2d tubelets = 2;
+  // repeated .tubelet_service.tubelet2d tubelets = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->tubelets_size()); i < n; i++) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        2, this->tubelets(static_cast<int>(i)), target);
+        1, this->tubelets(static_cast<int>(i)), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2248,7 +2250,7 @@ size_t get_all_tubelets2d_response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .tubelet_service.tubelet2d tubelets = 2;
+  // repeated .tubelet_service.tubelet2d tubelets = 1;
   {
     unsigned int count = static_cast<unsigned int>(this->tubelets_size());
     total_size += 1UL * count;

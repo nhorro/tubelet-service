@@ -67,6 +67,11 @@ void tubelets::move_frustrum(double dx, double dy)
     		boost::geometry::strategy::transform::translate_transformer<double,2,2>(dx,dy));
 }
 
+void tubelets::clear()
+{
+	this->tree.clear();
+}
+
 void tubelets::print_all()
 {
 	size_t index = 0;
@@ -84,4 +89,6 @@ void tubelets::print_all()
 		index++;
 	}
 }
+
+
 

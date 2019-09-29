@@ -29,8 +29,13 @@ class tubelet_serviceStub(object):
         request_serializer=tubelet__service__pb2.Empty.SerializeToString,
         response_deserializer=tubelet__service__pb2.get_all_tubelets2d_response.FromString,
         )
-    self.clear = channel.unary_unary(
-        '/tubelet_service.tubelet_service/clear',
+    self.reset = channel.unary_unary(
+        '/tubelet_service.tubelet_service/reset',
+        request_serializer=tubelet__service__pb2.Empty.SerializeToString,
+        response_deserializer=tubelet__service__pb2.Empty.FromString,
+        )
+    self.clip = channel.unary_unary(
+        '/tubelet_service.tubelet_service/clip',
         request_serializer=tubelet__service__pb2.Empty.SerializeToString,
         response_deserializer=tubelet__service__pb2.Empty.FromString,
         )
@@ -66,7 +71,14 @@ class tubelet_serviceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def clear(self, request, context):
+  def reset(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def clip(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -98,8 +110,13 @@ def add_tubelet_serviceServicer_to_server(servicer, server):
           request_deserializer=tubelet__service__pb2.Empty.FromString,
           response_serializer=tubelet__service__pb2.get_all_tubelets2d_response.SerializeToString,
       ),
-      'clear': grpc.unary_unary_rpc_method_handler(
-          servicer.clear,
+      'reset': grpc.unary_unary_rpc_method_handler(
+          servicer.reset,
+          request_deserializer=tubelet__service__pb2.Empty.FromString,
+          response_serializer=tubelet__service__pb2.Empty.SerializeToString,
+      ),
+      'clip': grpc.unary_unary_rpc_method_handler(
+          servicer.clip,
           request_deserializer=tubelet__service__pb2.Empty.FromString,
           response_serializer=tubelet__service__pb2.Empty.SerializeToString,
       ),
