@@ -7,7 +7,7 @@
 {% set target_all = "all"       %}  # [not win]
 
 package:
-    name: tubelet-service
+    name: hello-grpc
     version: {{ version }}
 source:
     path: ../src
@@ -29,7 +29,7 @@ build:
               -DCMAKE_MAKE_PROGRAM=${CONDA_PREFIX}/bin/make
         - cmake --build . --config Release --target all
         - cmake --build . --config Release --target install
-        - cd ..
+        - cd ..            
 requirements:
     build:
         - {{ compiler('cxx') }}
@@ -37,9 +37,16 @@ requirements:
         - make
         - pkg-config
         - libboost
+        - c-ares
+        - grpc-cpp
+        - protobuf
+        - libprotobuf 
     run:        
-        - libboost        
+        - libboost
+        - c-ares
+        - grpc-cpp        
+        - libprotobuf 
 about:
     home: N/A
     license: PROPRIETARY
-    summary: This is a new project.
+    summary: grpc test

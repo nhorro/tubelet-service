@@ -34,7 +34,12 @@ public:
 	using rtree = bgi::rtree< tubelet2d, bgi::rstar<16, 4> >;
 
 	/**
-	 * @brief Default constructor
+	 * @brief Default constructor.
+	 */
+	tubelets();
+
+	/**
+	 * Alternative constructor
 	 * @param x0 horizontal origin of viewing frustrum
 	 * @param y0 vertical origin of viewing frustrum
 	 * @param w width of viewing frustrum

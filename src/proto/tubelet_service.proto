@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package tubelet_service;
+
+message Empty
+{
+}
+
+service tubelet_service {  
+  rpc get_version (Empty) returns (get_version_response) {}
+  rpc add_observation2d (add_observation2d_request) returns (Empty) {}
+  rpc get_all_tubelets2d (Empty) returns (get_all_tubelets2d_response) {}
+  rpc reset(Empty) returns (Empty) {}
+  rpc clip(Empty) returns (Empty) {}
+  rpc move_window(move_window_request) returns (Empty) {}  
+}
+
+
+
+message point2d
+{
+    double x = 1;
+    double y = 2;
+}
+
+message observation
+{
+    uint32 class_index = 1;
+    double prob = 2;
+}
+
+message tubelet2d
+{
+    point2d pos = 1;
+    repeated observation observations = 2;
+}
+
+// =============================================
+// get_version
+// =============================================
+
+message get_version_response 
+{
+  string version = 1;
+}
+
+// =============================================
+// add_observation2d
+// =============================================
+
+message add_observation2d_request
+{
+    point2d pos = 1;
+    observation obs = 2;    
+}
+
+// =============================================
+// get_all_tubelets2d
+// =============================================
+
+message get_all_tubelets2d_response
+{
+    repeated tubelet2d tubelets = 1;
+}
+
+// =============================================
+// move_window
+// =============================================
+
+message move_window_request
+{
+    double dx = 1;
+    double dy = 2;
+}
