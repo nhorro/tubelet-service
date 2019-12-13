@@ -51,6 +51,10 @@ class move_window_requestDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<move_window_request> _instance;
 } _move_window_request_default_instance_;
+class set_window_position_requestDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<set_window_position_request> _instance;
+} _set_window_position_request_default_instance_;
 }  // namespace tubelet_service
 static void InitDefaultsscc_info_Empty_tubelet_5fservice_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -153,6 +157,20 @@ static void InitDefaultsscc_info_point2d_tubelet_5fservice_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_point2d_tubelet_5fservice_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsscc_info_point2d_tubelet_5fservice_2eproto}, {}};
 
+static void InitDefaultsscc_info_set_window_position_request_tubelet_5fservice_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::tubelet_service::_set_window_position_request_default_instance_;
+    new (ptr) ::tubelet_service::set_window_position_request();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::tubelet_service::set_window_position_request::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_set_window_position_request_tubelet_5fservice_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsscc_info_set_window_position_request_tubelet_5fservice_2eproto}, {}};
+
 static void InitDefaultsscc_info_tubelet2d_tubelet_5fservice_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -169,7 +187,7 @@ static void InitDefaultsscc_info_tubelet2d_tubelet_5fservice_2eproto() {
       &scc_info_point2d_tubelet_5fservice_2eproto.base,
       &scc_info_observation_tubelet_5fservice_2eproto.base,}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_tubelet_5fservice_2eproto[8];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_tubelet_5fservice_2eproto[9];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_tubelet_5fservice_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_tubelet_5fservice_2eproto = nullptr;
 
@@ -226,6 +244,13 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_tubelet_5fservice_2eproto::off
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::tubelet_service::move_window_request, dx_),
   PROTOBUF_FIELD_OFFSET(::tubelet_service::move_window_request, dy_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::tubelet_service::set_window_position_request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::tubelet_service::set_window_position_request, x0_),
+  PROTOBUF_FIELD_OFFSET(::tubelet_service::set_window_position_request, y0_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::tubelet_service::Empty)},
@@ -236,6 +261,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 32, -1, sizeof(::tubelet_service::add_observation2d_request)},
   { 39, -1, sizeof(::tubelet_service::get_all_tubelets2d_response)},
   { 45, -1, sizeof(::tubelet_service::move_window_request)},
+  { 52, -1, sizeof(::tubelet_service::set_window_position_request)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -247,6 +273,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::tubelet_service::_add_observation2d_request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::tubelet_service::_get_all_tubelets2d_response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::tubelet_service::_move_window_request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::tubelet_service::_set_window_position_request_default_instance_),
 };
 
 const char descriptor_table_protodef_tubelet_5fservice_2eproto[] =
@@ -262,24 +289,27 @@ const char descriptor_table_protodef_tubelet_5fservice_2eproto[] =
   ".tubelet_service.observation\"K\n\033get_all_"
   "tubelets2d_response\022,\n\010tubelets\030\001 \003(\0132\032."
   "tubelet_service.tubelet2d\"-\n\023move_window"
-  "_request\022\n\n\002dx\030\001 \001(\001\022\n\n\002dy\030\002 \001(\0012\336\003\n\017tub"
-  "elet_service\022N\n\013get_version\022\026.tubelet_se"
-  "rvice.Empty\032%.tubelet_service.get_versio"
-  "n_response\"\000\022Y\n\021add_observation2d\022*.tube"
-  "let_service.add_observation2d_request\032\026."
-  "tubelet_service.Empty\"\000\022\\\n\022get_all_tubel"
-  "ets2d\022\026.tubelet_service.Empty\032,.tubelet_"
-  "service.get_all_tubelets2d_response\"\000\0229\n"
-  "\005reset\022\026.tubelet_service.Empty\032\026.tubelet"
-  "_service.Empty\"\000\0228\n\004clip\022\026.tubelet_servi"
-  "ce.Empty\032\026.tubelet_service.Empty\"\000\022M\n\013mo"
-  "ve_window\022$.tubelet_service.move_window_"
-  "request\032\026.tubelet_service.Empty\"\000b\006proto"
-  "3"
+  "_request\022\n\n\002dx\030\001 \001(\001\022\n\n\002dy\030\002 \001(\001\"5\n\033set_"
+  "window_position_request\022\n\n\002x0\030\001 \001(\001\022\n\n\002y"
+  "0\030\002 \001(\0012\275\004\n\017tubelet_service\022N\n\013get_versi"
+  "on\022\026.tubelet_service.Empty\032%.tubelet_ser"
+  "vice.get_version_response\"\000\022Y\n\021add_obser"
+  "vation2d\022*.tubelet_service.add_observati"
+  "on2d_request\032\026.tubelet_service.Empty\"\000\022\\"
+  "\n\022get_all_tubelets2d\022\026.tubelet_service.E"
+  "mpty\032,.tubelet_service.get_all_tubelets2"
+  "d_response\"\000\0229\n\005reset\022\026.tubelet_service."
+  "Empty\032\026.tubelet_service.Empty\"\000\0228\n\004clip\022"
+  "\026.tubelet_service.Empty\032\026.tubelet_servic"
+  "e.Empty\"\000\022M\n\013move_window\022$.tubelet_servi"
+  "ce.move_window_request\032\026.tubelet_service"
+  ".Empty\"\000\022]\n\023set_window_position\022,.tubele"
+  "t_service.set_window_position_request\032\026."
+  "tubelet_service.Empty\"\000b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_tubelet_5fservice_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_tubelet_5fservice_2eproto_sccs[8] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_tubelet_5fservice_2eproto_sccs[9] = {
   &scc_info_Empty_tubelet_5fservice_2eproto.base,
   &scc_info_add_observation2d_request_tubelet_5fservice_2eproto.base,
   &scc_info_get_all_tubelets2d_response_tubelet_5fservice_2eproto.base,
@@ -287,15 +317,16 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_tub
   &scc_info_move_window_request_tubelet_5fservice_2eproto.base,
   &scc_info_observation_tubelet_5fservice_2eproto.base,
   &scc_info_point2d_tubelet_5fservice_2eproto.base,
+  &scc_info_set_window_position_request_tubelet_5fservice_2eproto.base,
   &scc_info_tubelet2d_tubelet_5fservice_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_tubelet_5fservice_2eproto_once;
 static bool descriptor_table_tubelet_5fservice_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_tubelet_5fservice_2eproto = {
-  &descriptor_table_tubelet_5fservice_2eproto_initialized, descriptor_table_protodef_tubelet_5fservice_2eproto, "tubelet_service.proto", 1001,
-  &descriptor_table_tubelet_5fservice_2eproto_once, descriptor_table_tubelet_5fservice_2eproto_sccs, descriptor_table_tubelet_5fservice_2eproto_deps, 8, 0,
+  &descriptor_table_tubelet_5fservice_2eproto_initialized, descriptor_table_protodef_tubelet_5fservice_2eproto, "tubelet_service.proto", 1151,
+  &descriptor_table_tubelet_5fservice_2eproto_once, descriptor_table_tubelet_5fservice_2eproto_sccs, descriptor_table_tubelet_5fservice_2eproto_deps, 9, 0,
   schemas, file_default_instances, TableStruct_tubelet_5fservice_2eproto::offsets,
-  file_level_metadata_tubelet_5fservice_2eproto, 8, file_level_enum_descriptors_tubelet_5fservice_2eproto, file_level_service_descriptors_tubelet_5fservice_2eproto,
+  file_level_metadata_tubelet_5fservice_2eproto, 9, file_level_enum_descriptors_tubelet_5fservice_2eproto, file_level_service_descriptors_tubelet_5fservice_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -2625,6 +2656,307 @@ void move_window_request::InternalSwap(move_window_request* other) {
 }
 
 
+// ===================================================================
+
+void set_window_position_request::InitAsDefaultInstance() {
+}
+class set_window_position_request::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int set_window_position_request::kX0FieldNumber;
+const int set_window_position_request::kY0FieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+set_window_position_request::set_window_position_request()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:tubelet_service.set_window_position_request)
+}
+set_window_position_request::set_window_position_request(const set_window_position_request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&x0_, &from.x0_,
+    static_cast<size_t>(reinterpret_cast<char*>(&y0_) -
+    reinterpret_cast<char*>(&x0_)) + sizeof(y0_));
+  // @@protoc_insertion_point(copy_constructor:tubelet_service.set_window_position_request)
+}
+
+void set_window_position_request::SharedCtor() {
+  ::memset(&x0_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&y0_) -
+      reinterpret_cast<char*>(&x0_)) + sizeof(y0_));
+}
+
+set_window_position_request::~set_window_position_request() {
+  // @@protoc_insertion_point(destructor:tubelet_service.set_window_position_request)
+  SharedDtor();
+}
+
+void set_window_position_request::SharedDtor() {
+}
+
+void set_window_position_request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const set_window_position_request& set_window_position_request::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_set_window_position_request_tubelet_5fservice_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void set_window_position_request::Clear() {
+// @@protoc_insertion_point(message_clear_start:tubelet_service.set_window_position_request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&x0_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&y0_) -
+      reinterpret_cast<char*>(&x0_)) + sizeof(y0_));
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* set_window_position_request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // double x0 = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
+          x0_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double y0 = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
+          y0_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool set_window_position_request::MergePartialFromCodedStream(
+    ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+  // @@protoc_insertion_point(parse_start:tubelet_service.set_window_position_request)
+  for (;;) {
+    ::std::pair<::PROTOBUF_NAMESPACE_ID::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // double x0 = 1;
+      case 1: {
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (9 & 0xFF)) {
+
+          DO_((::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadPrimitive<
+                   double, ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &x0_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // double y0 = 2;
+      case 2: {
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (17 & 0xFF)) {
+
+          DO_((::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadPrimitive<
+                   double, ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &y0_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:tubelet_service.set_window_position_request)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:tubelet_service.set_window_position_request)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void set_window_position_request::SerializeWithCachedSizes(
+    ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:tubelet_service.set_window_position_request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // double x0 = 1;
+  if (!(this->x0() <= 0 && this->x0() >= 0)) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDouble(1, this->x0(), output);
+  }
+
+  // double y0 = 2;
+  if (!(this->y0() <= 0 && this->y0() >= 0)) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDouble(2, this->y0(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:tubelet_service.set_window_position_request)
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* set_window_position_request::InternalSerializeWithCachedSizesToArray(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:tubelet_service.set_window_position_request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // double x0 = 1;
+  if (!(this->x0() <= 0 && this->x0() >= 0)) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(1, this->x0(), target);
+  }
+
+  // double y0 = 2;
+  if (!(this->y0() <= 0 && this->y0() >= 0)) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(2, this->y0(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:tubelet_service.set_window_position_request)
+  return target;
+}
+
+size_t set_window_position_request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:tubelet_service.set_window_position_request)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // double x0 = 1;
+  if (!(this->x0() <= 0 && this->x0() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double y0 = 2;
+  if (!(this->y0() <= 0 && this->y0() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void set_window_position_request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:tubelet_service.set_window_position_request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const set_window_position_request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<set_window_position_request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:tubelet_service.set_window_position_request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:tubelet_service.set_window_position_request)
+    MergeFrom(*source);
+  }
+}
+
+void set_window_position_request::MergeFrom(const set_window_position_request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:tubelet_service.set_window_position_request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!(from.x0() <= 0 && from.x0() >= 0)) {
+    set_x0(from.x0());
+  }
+  if (!(from.y0() <= 0 && from.y0() >= 0)) {
+    set_y0(from.y0());
+  }
+}
+
+void set_window_position_request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:tubelet_service.set_window_position_request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void set_window_position_request::CopyFrom(const set_window_position_request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:tubelet_service.set_window_position_request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool set_window_position_request::IsInitialized() const {
+  return true;
+}
+
+void set_window_position_request::Swap(set_window_position_request* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void set_window_position_request::InternalSwap(set_window_position_request* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(x0_, other->x0_);
+  swap(y0_, other->y0_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata set_window_position_request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace tubelet_service
 PROTOBUF_NAMESPACE_OPEN
@@ -2651,6 +2983,9 @@ template<> PROTOBUF_NOINLINE ::tubelet_service::get_all_tubelets2d_response* Are
 }
 template<> PROTOBUF_NOINLINE ::tubelet_service::move_window_request* Arena::CreateMaybeMessage< ::tubelet_service::move_window_request >(Arena* arena) {
   return Arena::CreateInternal< ::tubelet_service::move_window_request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::tubelet_service::set_window_position_request* Arena::CreateMaybeMessage< ::tubelet_service::set_window_position_request >(Arena* arena) {
+  return Arena::CreateInternal< ::tubelet_service::set_window_position_request >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

@@ -91,6 +91,12 @@ public:
 		return Status::OK;
 	}
 
+	grpc::Status set_window_position(::grpc::ServerContext* context, const ::tubelet_service::set_window_position_request* request, ::tubelet_service::Empty* response) override
+	{
+		this->tubs.set_frustrum_position(request->x0(),request->y0());
+		return Status::OK;
+	}
+
 private:
 	tubelets tubs;
 };

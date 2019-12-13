@@ -44,6 +44,11 @@ class tubelet_serviceStub(object):
         request_serializer=tubelet__service__pb2.move_window_request.SerializeToString,
         response_deserializer=tubelet__service__pb2.Empty.FromString,
         )
+    self.set_window_position = channel.unary_unary(
+        '/tubelet_service.tubelet_service/set_window_position',
+        request_serializer=tubelet__service__pb2.set_window_position_request.SerializeToString,
+        response_deserializer=tubelet__service__pb2.Empty.FromString,
+        )
 
 
 class tubelet_serviceServicer(object):
@@ -92,6 +97,13 @@ class tubelet_serviceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def set_window_position(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_tubelet_serviceServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -123,6 +135,11 @@ def add_tubelet_serviceServicer_to_server(servicer, server):
       'move_window': grpc.unary_unary_rpc_method_handler(
           servicer.move_window,
           request_deserializer=tubelet__service__pb2.move_window_request.FromString,
+          response_serializer=tubelet__service__pb2.Empty.SerializeToString,
+      ),
+      'set_window_position': grpc.unary_unary_rpc_method_handler(
+          servicer.set_window_position,
+          request_deserializer=tubelet__service__pb2.set_window_position_request.FromString,
           response_serializer=tubelet__service__pb2.Empty.SerializeToString,
       ),
   }

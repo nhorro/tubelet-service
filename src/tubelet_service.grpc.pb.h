@@ -88,6 +88,13 @@ class tubelet_service final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>> PrepareAsyncmove_window(::grpc::ClientContext* context, const ::tubelet_service::move_window_request& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>>(PrepareAsyncmove_windowRaw(context, request, cq));
     }
+    virtual ::grpc::Status set_window_position(::grpc::ClientContext* context, const ::tubelet_service::set_window_position_request& request, ::tubelet_service::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>> Asyncset_window_position(::grpc::ClientContext* context, const ::tubelet_service::set_window_position_request& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>>(Asyncset_window_positionRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>> PrepareAsyncset_window_position(::grpc::ClientContext* context, const ::tubelet_service::set_window_position_request& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>>(PrepareAsyncset_window_positionRaw(context, request, cq));
+    }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
@@ -115,6 +122,10 @@ class tubelet_service final {
       virtual void move_window(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)>) = 0;
       virtual void move_window(::grpc::ClientContext* context, const ::tubelet_service::move_window_request* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       virtual void move_window(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void set_window_position(::grpc::ClientContext* context, const ::tubelet_service::set_window_position_request* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void set_window_position(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void set_window_position(::grpc::ClientContext* context, const ::tubelet_service::set_window_position_request* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void set_window_position(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
@@ -130,6 +141,8 @@ class tubelet_service final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>* PrepareAsyncclipRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>* Asyncmove_windowRaw(::grpc::ClientContext* context, const ::tubelet_service::move_window_request& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>* PrepareAsyncmove_windowRaw(::grpc::ClientContext* context, const ::tubelet_service::move_window_request& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>* Asyncset_window_positionRaw(::grpc::ClientContext* context, const ::tubelet_service::set_window_position_request& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::tubelet_service::Empty>* PrepareAsyncset_window_positionRaw(::grpc::ClientContext* context, const ::tubelet_service::set_window_position_request& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -176,6 +189,13 @@ class tubelet_service final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>> PrepareAsyncmove_window(::grpc::ClientContext* context, const ::tubelet_service::move_window_request& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>>(PrepareAsyncmove_windowRaw(context, request, cq));
     }
+    ::grpc::Status set_window_position(::grpc::ClientContext* context, const ::tubelet_service::set_window_position_request& request, ::tubelet_service::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>> Asyncset_window_position(::grpc::ClientContext* context, const ::tubelet_service::set_window_position_request& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>>(Asyncset_window_positionRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>> PrepareAsyncset_window_position(::grpc::ClientContext* context, const ::tubelet_service::set_window_position_request& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>>(PrepareAsyncset_window_positionRaw(context, request, cq));
+    }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
@@ -203,6 +223,10 @@ class tubelet_service final {
       void move_window(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)>) override;
       void move_window(::grpc::ClientContext* context, const ::tubelet_service::move_window_request* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       void move_window(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void set_window_position(::grpc::ClientContext* context, const ::tubelet_service::set_window_position_request* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)>) override;
+      void set_window_position(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, std::function<void(::grpc::Status)>) override;
+      void set_window_position(::grpc::ClientContext* context, const ::tubelet_service::set_window_position_request* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void set_window_position(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::tubelet_service::Empty* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -226,12 +250,15 @@ class tubelet_service final {
     ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>* PrepareAsyncclipRaw(::grpc::ClientContext* context, const ::tubelet_service::Empty& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>* Asyncmove_windowRaw(::grpc::ClientContext* context, const ::tubelet_service::move_window_request& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>* PrepareAsyncmove_windowRaw(::grpc::ClientContext* context, const ::tubelet_service::move_window_request& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>* Asyncset_window_positionRaw(::grpc::ClientContext* context, const ::tubelet_service::set_window_position_request& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::tubelet_service::Empty>* PrepareAsyncset_window_positionRaw(::grpc::ClientContext* context, const ::tubelet_service::set_window_position_request& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_get_version_;
     const ::grpc::internal::RpcMethod rpcmethod_add_observation2d_;
     const ::grpc::internal::RpcMethod rpcmethod_get_all_tubelets2d_;
     const ::grpc::internal::RpcMethod rpcmethod_reset_;
     const ::grpc::internal::RpcMethod rpcmethod_clip_;
     const ::grpc::internal::RpcMethod rpcmethod_move_window_;
+    const ::grpc::internal::RpcMethod rpcmethod_set_window_position_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -245,6 +272,7 @@ class tubelet_service final {
     virtual ::grpc::Status reset(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response);
     virtual ::grpc::Status clip(::grpc::ServerContext* context, const ::tubelet_service::Empty* request, ::tubelet_service::Empty* response);
     virtual ::grpc::Status move_window(::grpc::ServerContext* context, const ::tubelet_service::move_window_request* request, ::tubelet_service::Empty* response);
+    virtual ::grpc::Status set_window_position(::grpc::ServerContext* context, const ::tubelet_service::set_window_position_request* request, ::tubelet_service::Empty* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_get_version : public BaseClass {
@@ -366,7 +394,27 @@ class tubelet_service final {
       ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_get_version<WithAsyncMethod_add_observation2d<WithAsyncMethod_get_all_tubelets2d<WithAsyncMethod_reset<WithAsyncMethod_clip<WithAsyncMethod_move_window<Service > > > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_set_window_position : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_set_window_position() {
+      ::grpc::Service::MarkMethodAsync(6);
+    }
+    ~WithAsyncMethod_set_window_position() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status set_window_position(::grpc::ServerContext* context, const ::tubelet_service::set_window_position_request* request, ::tubelet_service::Empty* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void Requestset_window_position(::grpc::ServerContext* context, ::tubelet_service::set_window_position_request* request, ::grpc::ServerAsyncResponseWriter< ::tubelet_service::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_get_version<WithAsyncMethod_add_observation2d<WithAsyncMethod_get_all_tubelets2d<WithAsyncMethod_reset<WithAsyncMethod_clip<WithAsyncMethod_move_window<WithAsyncMethod_set_window_position<Service > > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_get_version : public BaseClass {
    private:
@@ -553,7 +601,38 @@ class tubelet_service final {
     }
     virtual void move_window(::grpc::ServerContext* context, const ::tubelet_service::move_window_request* request, ::tubelet_service::Empty* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
-  typedef ExperimentalWithCallbackMethod_get_version<ExperimentalWithCallbackMethod_add_observation2d<ExperimentalWithCallbackMethod_get_all_tubelets2d<ExperimentalWithCallbackMethod_reset<ExperimentalWithCallbackMethod_clip<ExperimentalWithCallbackMethod_move_window<Service > > > > > > ExperimentalCallbackService;
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_set_window_position : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithCallbackMethod_set_window_position() {
+      ::grpc::Service::experimental().MarkMethodCallback(6,
+        new ::grpc_impl::internal::CallbackUnaryHandler< ::tubelet_service::set_window_position_request, ::tubelet_service::Empty>(
+          [this](::grpc::ServerContext* context,
+                 const ::tubelet_service::set_window_position_request* request,
+                 ::tubelet_service::Empty* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   return this->set_window_position(context, request, response, controller);
+                 }));
+    }
+    void SetMessageAllocatorFor_set_window_position(
+        ::grpc::experimental::MessageAllocator< ::tubelet_service::set_window_position_request, ::tubelet_service::Empty>* allocator) {
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::tubelet_service::set_window_position_request, ::tubelet_service::Empty>*>(
+          ::grpc::Service::experimental().GetHandler(6))
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_set_window_position() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status set_window_position(::grpc::ServerContext* context, const ::tubelet_service::set_window_position_request* request, ::tubelet_service::Empty* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void set_window_position(::grpc::ServerContext* context, const ::tubelet_service::set_window_position_request* request, ::tubelet_service::Empty* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  typedef ExperimentalWithCallbackMethod_get_version<ExperimentalWithCallbackMethod_add_observation2d<ExperimentalWithCallbackMethod_get_all_tubelets2d<ExperimentalWithCallbackMethod_reset<ExperimentalWithCallbackMethod_clip<ExperimentalWithCallbackMethod_move_window<ExperimentalWithCallbackMethod_set_window_position<Service > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_get_version : public BaseClass {
    private:
@@ -652,6 +731,23 @@ class tubelet_service final {
     }
     // disable synchronous version of this method
     ::grpc::Status move_window(::grpc::ServerContext* context, const ::tubelet_service::move_window_request* request, ::tubelet_service::Empty* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_set_window_position : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_set_window_position() {
+      ::grpc::Service::MarkMethodGeneric(6);
+    }
+    ~WithGenericMethod_set_window_position() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status set_window_position(::grpc::ServerContext* context, const ::tubelet_service::set_window_position_request* request, ::tubelet_service::Empty* response) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -774,6 +870,26 @@ class tubelet_service final {
     }
     void Requestmove_window(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_set_window_position : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithRawMethod_set_window_position() {
+      ::grpc::Service::MarkMethodRaw(6);
+    }
+    ~WithRawMethod_set_window_position() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status set_window_position(::grpc::ServerContext* context, const ::tubelet_service::set_window_position_request* request, ::tubelet_service::Empty* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void Requestset_window_position(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -927,6 +1043,31 @@ class tubelet_service final {
     virtual void move_window(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_set_window_position : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    ExperimentalWithRawCallbackMethod_set_window_position() {
+      ::grpc::Service::experimental().MarkMethodRawCallback(6,
+        new ::grpc_impl::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+          [this](::grpc::ServerContext* context,
+                 const ::grpc::ByteBuffer* request,
+                 ::grpc::ByteBuffer* response,
+                 ::grpc::experimental::ServerCallbackRpcController* controller) {
+                   this->set_window_position(context, request, response, controller);
+                 }));
+    }
+    ~ExperimentalWithRawCallbackMethod_set_window_position() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status set_window_position(::grpc::ServerContext* context, const ::tubelet_service::set_window_position_request* request, ::tubelet_service::Empty* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual void set_window_position(::grpc::ServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_get_version : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
@@ -1046,9 +1187,29 @@ class tubelet_service final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status Streamedmove_window(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::tubelet_service::move_window_request,::tubelet_service::Empty>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_get_version<WithStreamedUnaryMethod_add_observation2d<WithStreamedUnaryMethod_get_all_tubelets2d<WithStreamedUnaryMethod_reset<WithStreamedUnaryMethod_clip<WithStreamedUnaryMethod_move_window<Service > > > > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_set_window_position : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_set_window_position() {
+      ::grpc::Service::MarkMethodStreamed(6,
+        new ::grpc::internal::StreamedUnaryHandler< ::tubelet_service::set_window_position_request, ::tubelet_service::Empty>(std::bind(&WithStreamedUnaryMethod_set_window_position<BaseClass>::Streamedset_window_position, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_set_window_position() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status set_window_position(::grpc::ServerContext* context, const ::tubelet_service::set_window_position_request* request, ::tubelet_service::Empty* response) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status Streamedset_window_position(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::tubelet_service::set_window_position_request,::tubelet_service::Empty>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_get_version<WithStreamedUnaryMethod_add_observation2d<WithStreamedUnaryMethod_get_all_tubelets2d<WithStreamedUnaryMethod_reset<WithStreamedUnaryMethod_clip<WithStreamedUnaryMethod_move_window<WithStreamedUnaryMethod_set_window_position<Service > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_get_version<WithStreamedUnaryMethod_add_observation2d<WithStreamedUnaryMethod_get_all_tubelets2d<WithStreamedUnaryMethod_reset<WithStreamedUnaryMethod_clip<WithStreamedUnaryMethod_move_window<Service > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_get_version<WithStreamedUnaryMethod_add_observation2d<WithStreamedUnaryMethod_get_all_tubelets2d<WithStreamedUnaryMethod_reset<WithStreamedUnaryMethod_clip<WithStreamedUnaryMethod_move_window<WithStreamedUnaryMethod_set_window_position<Service > > > > > > > StreamedService;
 };
 
 }  // namespace tubelet_service

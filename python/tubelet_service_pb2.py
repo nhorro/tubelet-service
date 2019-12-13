@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='tubelet_service',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x15tubelet_service.proto\x12\x0ftubelet_service\"\x07\n\x05\x45mpty\"\x1f\n\x07point2d\x12\t\n\x01x\x18\x01 \x01(\x01\x12\t\n\x01y\x18\x02 \x01(\x01\"0\n\x0bobservation\x12\x13\n\x0b\x63lass_index\x18\x01 \x01(\r\x12\x0c\n\x04prob\x18\x02 \x01(\x01\"f\n\ttubelet2d\x12%\n\x03pos\x18\x01 \x01(\x0b\x32\x18.tubelet_service.point2d\x12\x32\n\x0cobservations\x18\x02 \x03(\x0b\x32\x1c.tubelet_service.observation\"\'\n\x14get_version_response\x12\x0f\n\x07version\x18\x01 \x01(\t\"m\n\x19\x61\x64\x64_observation2d_request\x12%\n\x03pos\x18\x01 \x01(\x0b\x32\x18.tubelet_service.point2d\x12)\n\x03obs\x18\x02 \x01(\x0b\x32\x1c.tubelet_service.observation\"K\n\x1bget_all_tubelets2d_response\x12,\n\x08tubelets\x18\x01 \x03(\x0b\x32\x1a.tubelet_service.tubelet2d\"-\n\x13move_window_request\x12\n\n\x02\x64x\x18\x01 \x01(\x01\x12\n\n\x02\x64y\x18\x02 \x01(\x01\x32\xde\x03\n\x0ftubelet_service\x12N\n\x0bget_version\x12\x16.tubelet_service.Empty\x1a%.tubelet_service.get_version_response\"\x00\x12Y\n\x11\x61\x64\x64_observation2d\x12*.tubelet_service.add_observation2d_request\x1a\x16.tubelet_service.Empty\"\x00\x12\\\n\x12get_all_tubelets2d\x12\x16.tubelet_service.Empty\x1a,.tubelet_service.get_all_tubelets2d_response\"\x00\x12\x39\n\x05reset\x12\x16.tubelet_service.Empty\x1a\x16.tubelet_service.Empty\"\x00\x12\x38\n\x04\x63lip\x12\x16.tubelet_service.Empty\x1a\x16.tubelet_service.Empty\"\x00\x12M\n\x0bmove_window\x12$.tubelet_service.move_window_request\x1a\x16.tubelet_service.Empty\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x15tubelet_service.proto\x12\x0ftubelet_service\"\x07\n\x05\x45mpty\"\x1f\n\x07point2d\x12\t\n\x01x\x18\x01 \x01(\x01\x12\t\n\x01y\x18\x02 \x01(\x01\"0\n\x0bobservation\x12\x13\n\x0b\x63lass_index\x18\x01 \x01(\r\x12\x0c\n\x04prob\x18\x02 \x01(\x01\"f\n\ttubelet2d\x12%\n\x03pos\x18\x01 \x01(\x0b\x32\x18.tubelet_service.point2d\x12\x32\n\x0cobservations\x18\x02 \x03(\x0b\x32\x1c.tubelet_service.observation\"\'\n\x14get_version_response\x12\x0f\n\x07version\x18\x01 \x01(\t\"m\n\x19\x61\x64\x64_observation2d_request\x12%\n\x03pos\x18\x01 \x01(\x0b\x32\x18.tubelet_service.point2d\x12)\n\x03obs\x18\x02 \x01(\x0b\x32\x1c.tubelet_service.observation\"K\n\x1bget_all_tubelets2d_response\x12,\n\x08tubelets\x18\x01 \x03(\x0b\x32\x1a.tubelet_service.tubelet2d\"-\n\x13move_window_request\x12\n\n\x02\x64x\x18\x01 \x01(\x01\x12\n\n\x02\x64y\x18\x02 \x01(\x01\"5\n\x1bset_window_position_request\x12\n\n\x02x0\x18\x01 \x01(\x01\x12\n\n\x02y0\x18\x02 \x01(\x01\x32\xbd\x04\n\x0ftubelet_service\x12N\n\x0bget_version\x12\x16.tubelet_service.Empty\x1a%.tubelet_service.get_version_response\"\x00\x12Y\n\x11\x61\x64\x64_observation2d\x12*.tubelet_service.add_observation2d_request\x1a\x16.tubelet_service.Empty\"\x00\x12\\\n\x12get_all_tubelets2d\x12\x16.tubelet_service.Empty\x1a,.tubelet_service.get_all_tubelets2d_response\"\x00\x12\x39\n\x05reset\x12\x16.tubelet_service.Empty\x1a\x16.tubelet_service.Empty\"\x00\x12\x38\n\x04\x63lip\x12\x16.tubelet_service.Empty\x1a\x16.tubelet_service.Empty\"\x00\x12M\n\x0bmove_window\x12$.tubelet_service.move_window_request\x1a\x16.tubelet_service.Empty\"\x00\x12]\n\x13set_window_position\x12,.tubelet_service.set_window_position_request\x1a\x16.tubelet_service.Empty\"\x00\x62\x06proto3')
 )
 
 
@@ -301,6 +301,44 @@ _MOVE_WINDOW_REQUEST = _descriptor.Descriptor(
   serialized_end=512,
 )
 
+
+_SET_WINDOW_POSITION_REQUEST = _descriptor.Descriptor(
+  name='set_window_position_request',
+  full_name='tubelet_service.set_window_position_request',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='x0', full_name='tubelet_service.set_window_position_request.x0', index=0,
+      number=1, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='y0', full_name='tubelet_service.set_window_position_request.y0', index=1,
+      number=2, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=514,
+  serialized_end=567,
+)
+
 _TUBELET2D.fields_by_name['pos'].message_type = _POINT2D
 _TUBELET2D.fields_by_name['observations'].message_type = _OBSERVATION
 _ADD_OBSERVATION2D_REQUEST.fields_by_name['pos'].message_type = _POINT2D
@@ -314,6 +352,7 @@ DESCRIPTOR.message_types_by_name['get_version_response'] = _GET_VERSION_RESPONSE
 DESCRIPTOR.message_types_by_name['add_observation2d_request'] = _ADD_OBSERVATION2D_REQUEST
 DESCRIPTOR.message_types_by_name['get_all_tubelets2d_response'] = _GET_ALL_TUBELETS2D_RESPONSE
 DESCRIPTOR.message_types_by_name['move_window_request'] = _MOVE_WINDOW_REQUEST
+DESCRIPTOR.message_types_by_name['set_window_position_request'] = _SET_WINDOW_POSITION_REQUEST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Empty = _reflection.GeneratedProtocolMessageType('Empty', (_message.Message,), {
@@ -372,6 +411,13 @@ move_window_request = _reflection.GeneratedProtocolMessageType('move_window_requ
   })
 _sym_db.RegisterMessage(move_window_request)
 
+set_window_position_request = _reflection.GeneratedProtocolMessageType('set_window_position_request', (_message.Message,), {
+  'DESCRIPTOR' : _SET_WINDOW_POSITION_REQUEST,
+  '__module__' : 'tubelet_service_pb2'
+  # @@protoc_insertion_point(class_scope:tubelet_service.set_window_position_request)
+  })
+_sym_db.RegisterMessage(set_window_position_request)
+
 
 
 _TUBELET_SERVICE = _descriptor.ServiceDescriptor(
@@ -380,8 +426,8 @@ _TUBELET_SERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=515,
-  serialized_end=993,
+  serialized_start=570,
+  serialized_end=1143,
   methods=[
   _descriptor.MethodDescriptor(
     name='get_version',
@@ -434,6 +480,15 @@ _TUBELET_SERVICE = _descriptor.ServiceDescriptor(
     index=5,
     containing_service=None,
     input_type=_MOVE_WINDOW_REQUEST,
+    output_type=_EMPTY,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='set_window_position',
+    full_name='tubelet_service.tubelet_service.set_window_position',
+    index=6,
+    containing_service=None,
+    input_type=_SET_WINDOW_POSITION_REQUEST,
     output_type=_EMPTY,
     serialized_options=None,
   ),

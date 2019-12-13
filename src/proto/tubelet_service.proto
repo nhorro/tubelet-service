@@ -12,7 +12,8 @@ service tubelet_service {
   rpc get_all_tubelets2d (Empty) returns (get_all_tubelets2d_response) {}
   rpc reset(Empty) returns (Empty) {}
   rpc clip(Empty) returns (Empty) {}
-  rpc move_window(move_window_request) returns (Empty) {}  
+  rpc move_window(move_window_request) returns (Empty) {}
+  rpc set_window_position(set_window_position_request) returns (Empty) {}    
 }
 
 
@@ -71,4 +72,14 @@ message move_window_request
 {
     double dx = 1;
     double dy = 2;
+}
+
+// =============================================
+// set_window_position
+// =============================================
+
+message set_window_position_request
+{
+	double x0 = 1;
+    double y0 = 2;
 }

@@ -5,7 +5,9 @@
 
 tubelets::tubelets(double x0, double y0, double w, double h)
 :
-	frustrum( tubelet2d{x0, y0}, tubelet2d{x0+w, y0+h} )
+	  w(w)
+	, h(h)
+	, frustrum( tubelet2d{x0, y0}, tubelet2d{x0+w, y0+h} )
 {
 
 }
@@ -65,6 +67,11 @@ void tubelets::move_frustrum(double dx, double dy)
 {
     boost::geometry::transform(this->frustrum,this->frustrum,
     		boost::geometry::strategy::transform::translate_transformer<double,2,2>(dx,dy));
+}
+
+void tubelets::set_frustrum_position(double x0, double y0)
+{
+    boost::geometry::assign_values(this->frustrum, x0,y0, x0+w,y0+h);
 }
 
 void tubelets::clear()

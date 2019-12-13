@@ -75,6 +75,13 @@ public:
 	void move_frustrum(double dx, double dy);
 
 	/**
+	 * @brief Update frustrum position
+	 * @param x0 horizontal position
+	 * @param y0 vertical position
+	 */
+	void set_frustrum_position(double x0, double y0);
+
+	/**
 	 * @brief Remove tubelets outside of frustrum.
 	 */
 	void clip();
@@ -94,6 +101,7 @@ public:
 
 private:
 	rtree tree;
+	double w,h;
     box2d frustrum;
 };
 
